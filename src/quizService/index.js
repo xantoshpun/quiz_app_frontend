@@ -308,6 +308,66 @@ const qBank = [
     answers: ["Uno", "Go Fish", "Twister", "Munchkin"],
     correct: "Uno",
     questionId: "4150746"
+  },
+    {
+    question:
+      "What machine element is located in the center of fidget spinners?",
+    answers: ["Bearings", "Axles", "Gears", "Belts"],
+    correct: "Bearings",
+    questionId: "4235063"
+  },
+  {
+    question: "Which sign of the zodiac comes between Virgo and Scorpio?",
+    answers: ["Libra", "Gemini", "Taurus", "Capricorn"],
+    correct: "Libra",
+    questionId: "4321002"
+  },
+  {
+    question: "Which of the following presidents is not on Mount Rushmore?",
+    answers: [
+      "John F. Kennedy",
+      "Theodore Roosevelt",
+      "Abraham Lincoln",
+      "Thomas Jefferson"
+    ],
+    correct: "John F. Kennedy",
+    questionId: "4442286"
+  },
+  {
+    question: "What is Tasmania?",
+    answers: [
+      "An Australian State",
+      "A flavor of Ben and Jerry's ice-cream",
+      "A Psychological Disorder",
+      "The Name of a Warner Brothers Cartoon Character"
+    ],
+    correct: "An Australian State",
+    questionId: "4564430"
+  },
+  {
+    question: "What company developed the vocaloid Hatsune Miku?",
+    answers: ["Crypton Future Media", "Sega", "Sony", "Yamaha Corporation"],
+    correct: "Crypton Future Media",
+    questionId: "4630606"
+  },
+  {
+    question:
+      "Which country, not including Japan, has the most people of japanese decent?",
+    answers: ["Brazil", "China", "South Korea", "United States of America"],
+    correct: "Brazil",
+    questionId: "4795960"
+  },
+  {
+    question: "Which candy is NOT made by Mars?",
+    answers: ["Almond Joy", "M&M's", "Twix", "Snickers"],
+    correct: "Almond Joy",
+    questionId: "4811162"
+  },
+  {
+    question: "In which fast food chain can you order a Jamocha Shake?",
+    answers: ["Arby's", "McDonald's", "Burger King", "Wendy's"],
+    correct: "Arby's",
+    questionId: "4982981"
   }
 
 ];
