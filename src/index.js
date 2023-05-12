@@ -1,21 +1,66 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React,{Component} from 'react'
+import './assets/style.css';
+import ReactDOM from "react-dom"
+import quizService from './quizService/index';
+import QuestionBox from "./components/QuestionBox";
+import Result from "./components/results";
+class Quizbee extends Component{
+    state={
+        questionBank:[
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <div className="container">
+        ],
+        score:0,
+        responses:0
+    };
+    getQuestion = ()=>{
+        quizService().then(question=>{
+            this.setState({questionBank:question});
+        });
+    };
+    playAgain =()=>{
+        this.getQuestion();
+        this.setState({
+            score:0,
+            responses:0
+        })
+    }
+    computeAnswer= (answer,correctAnswer)=>{
+        if(answer === correctAnswer){
+            this.setState({
+                score:this.state.score+ 1
+            });
+            
+        };
+        this.setState({
+            responses:this.state.responses < 10 ? this.state.responses + 1 : 10
+        });
+
+
+    };
+    componentDidMount(){
+        this.getQuestion();
+
+    }
+
+    render(){
+        return(
+            <div className="container">
                 <div className="title">
                     QUIZBEE
                 </div>
-                </div>
-  </React.StrictMode>
-);
+                
+                {this.state.questionBank.length >0 && this.state.responses < 10 && this.state.questionBank.map((
+                    {question,answers,correct,questionId})=>
+                    (<QuestionBox question={question} option={answers} key={questionId}
+                    selected={answer => this.computeAnswer(answer,correct)}
+                    />))};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+                    {this.state.responses === 10 ? (<Result style={{backgroundcolor:"#FFA500"}} score={this.state.score} playAgain={this.playAgain}/>):null}
+            </div>
+        );
+    }
+    
+}
+
+ReactDOM.render(<Quizbee/>,document.getElementById("root"));
+export default Quizbee;
