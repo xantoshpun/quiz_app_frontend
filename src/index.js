@@ -46,7 +46,10 @@ class Quizbee extends Component{
         return(
             <div className="container">
                 <div className="title">
-                    QUIZBEE
+                    <h1>QUIZ APPLICATION</h1>
+                    <p>
+                    Welcome to the Quiz Application. <br/> Can you answer this 10 questions?
+                </p>
                 </div>
                 
                 {this.state.questionBank.length >0 && this.state.responses < 10 && this.state.questionBank.map((
@@ -55,7 +58,7 @@ class Quizbee extends Component{
                     selected={answer => this.computeAnswer(answer,correct)}
                     />))};
 
-                    {this.state.responses === 10 ? (<Result style={{backgroundcolor:"#FFA500"}} score={this.state.score} playAgain={this.playAgain}/>):null}
+                    {this.state.responses === 10 ? (<Result score={this.state.score} playAgain={this.playAgain}/>):null}
             </div>
         );
     }
@@ -63,4 +66,4 @@ class Quizbee extends Component{
 }
 
 ReactDOM.render(<Quizbee/>,document.getElementById("root"));
-export default Quizbee;
+export default Quizbee;
